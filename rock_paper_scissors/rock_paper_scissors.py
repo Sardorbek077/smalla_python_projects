@@ -4,6 +4,10 @@ computer_choice = random.choice([0, 1, 2])
 user_respond = input('Do you want to play a game? Type "yes" or "no"\n')
 
 if user_respond == 'yes':
+    print('''If you choose Rock, you will win against Scissors but lose against Paper.
+             If you choose Scissors, you will win against Paper but lose against Rock.
+             If you choose Paper, you will win against Rock but lose against Scissors.''')
+
     start = True
     while start:
         user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors "))
@@ -22,11 +26,12 @@ if user_respond == 'yes':
                 start = input('Do you want to play a game again? Type "yes" or "no" ')
             else:
                 print('Please choose number among 0, 1, and 2')
+
         if start == "yes":
             start = True
         else:
             print('Goodbye!')
             start = False
+
 else:
     print("Good Luck!")
-
