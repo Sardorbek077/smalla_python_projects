@@ -1,0 +1,129 @@
+Index: Auction/auction.py
+===================================================================
+diff --git a/Auction/auction.py b/Auction/auction.py
+--- a/Auction/auction.py	
++++ b/Auction/auction.py	
+@@ -1,0 +1,22 @@
++from highest_amount import find_highest_amount
++
++auction = {}
++
++user = True
++while user:
++    user_name = input('What is your name?: ')
++    user_bids = int(input("What is your bid?: $"))
++    auction[user_name] = user_bids
++    user = input("Are there any bidders? Type 'yes' or 'no': ")
++
++    if user == 'no':
++
++        user = False
++        find_highest_amount(auction)
++    else:
++        print('\n'* 30)
++
++
++# This another version of finding highest bid
++# print(f"The winner is {max(auction, key=auction.get)} with a bid of ${max(auction)}.")
++
+Index: .idea/100days_of_coding.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\" />\r\n    <orderEntry type=\"jdk\" jdkName=\"Python 3.11 (Sitewomen)\" jdkType=\"Python SDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+===================================================================
+diff --git a/.idea/100days_of_coding.iml b/.idea/100days_of_coding.iml
+--- a/.idea/100days_of_coding.iml	
++++ b/.idea/100days_of_coding.iml	
+@@ -1,7 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <module type="PYTHON_MODULE" version="4">
+   <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$" />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/coffee_machine/oop-coffee-machine-start" isTestSource="false" />
++    </content>
+     <orderEntry type="jdk" jdkName="Python 3.11 (Sitewomen)" jdkType="Python SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+Index: Auction/highest_amount.py
+===================================================================
+diff --git a/Auction/highest_amount.py b/Auction/highest_amount.py
+--- a/Auction/highest_amount.py	
++++ b/Auction/highest_amount.py	
+@@ -1,0 +1,12 @@
++def find_highest_amount(bidding_dictionary):
++    winner = ''
++    highest_amount = 0
++    for bidder in bidding_dictionary:
++        if bidding_dictionary[bidder] > highest_amount:
++            highest_amount = bidding_dictionary[bidder]
++            winner = bidder
++
++    print(f"The winner is {winner} with a bid of ${highest_amount}.")
++
++    # This another version of finding highest bid
++    # print(f"The winner is {max(bidding_dictionary, key=bidding_dictionary.get)} with a bid of ${max(bidding_dictionary)}.")
+\ No newline at end of file
+Index: calculator/calculator.py
+===================================================================
+diff --git a/calculator/calculator.py b/calculator/calculator.py
+--- a/calculator/calculator.py	
++++ b/calculator/calculator.py	
+@@ -1,0 +1,50 @@
++def add(a, b):
++    result = a + b
++    return result
++
++
++def multiply(a, b):
++    result = a * b
++    return result
++
++
++def subtract(a, b):
++    result = a - b
++    return result
++
++
++def divide(a, b):
++    result = a / b
++    return result
++
++
++operations = {
++
++    "*": multiply,
++    "/": divide,
++    '+': add,
++    '-': subtract
++}
++def calculator():
++    first_number = float(input('What is the first number?: '))
++    restart = True
++    while restart:
++
++        for symbol in operations:
++            print(symbol)
++        pick_operations = input('Pick an operation: ')
++        second_number = float(input('What is the second number?: '))
++        equals = operations[pick_operations](a=first_number, b=second_number)
++        print(f"{first_number} {pick_operations} {second_number} = {equals}")
++
++        choice = input(f'Type "y" to continue with {equals} or type "n" to start a new calculation: ')
++
++        if choice == 'y':
++            restart = True
++
++        else:
++            restart = False
++            print('\n'*10)
++            calculator()
++
++calculator()
+Index: stepik.py
+===================================================================
+diff --git a/stepik.py b/stepik.py
+--- a/stepik.py	
++++ b/stepik.py	
+@@ -1,0 +1,1 @@
++

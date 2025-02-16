@@ -52,8 +52,7 @@ def draw_dot(num_dot):
         t.left(180)
 
 
-draw_dot(20)
-
+draw_dot(10)
 
 screen = t.Screen()
 screen.exitonclick()
